@@ -1,12 +1,13 @@
 import React from "react";
-import Register from "./pages/Register";
+import Navbar from "./components/Navbar";
+// import Register from "./pages/Register";
 import AppRouter from "./router/AppRouter";
 
 const App = () => {
   return (
     <div>
-      <AppRouter/>
-      <Register />
+      <Navbar/>
+      <AppRouter />
     </div>
   );
 };
