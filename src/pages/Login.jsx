@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-// import { forgotPassword, signIn, signUpWithGoogle } from "../auth/firebase";
+import { forgotPassword, signIn, signUpWithGoogle } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
