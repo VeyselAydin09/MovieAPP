@@ -18,7 +18,12 @@ const auth = getAuth(app);
 
 export const createUser = async (email, password) => {
   try {
-    let userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    let userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(userCredential);
   } catch (error) {
     console.log(error.massage);
   }
