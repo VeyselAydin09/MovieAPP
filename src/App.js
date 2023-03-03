@@ -1,5 +1,6 @@
 import React from "react";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+
 import AuthContextProvider from "./context/AuthContextProvider";
 import AppRouter from "./router/AppRouter";
 
@@ -8,7 +9,7 @@ const App = () => {
     <div className="dark:bg-[#23242a]">
     <AuthContextProvider>
       <AppRouter />
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </AuthContextProvider>
      </div>
   );
