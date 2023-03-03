@@ -10,11 +10,11 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-// import {
-//   toastErrorNotify,
-//   toastSuccessNotify,
-//   toastWarnNotify,
-// } from "../helpers/ToastNotify";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "../helpers/ToastNotify";
 
 //* Your web app's Firebase configuration
 // TODO: Replace the following with your app's Firebase project configuration
@@ -48,11 +48,11 @@ export const createUser = async (email, password, navigate, displayName) => {
       displayName: displayName,
     });
     navigate("/");
-    // toastSuccessNotify("Registered successfully!");
+    toastSuccessNotify("Registered successfully!");
     // console.log(userCredential);
   } catch (error) {
-    // toastErrorNotify(error.message);
-    alert(error.message);
+    toastErrorNotify(error.message);
+    // alert(error.message);
   }
 };
 
@@ -63,10 +63,10 @@ export const signIn = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     navigate("/");
-    // toastSuccessNotify("Logged in successfully!");
+    toastSuccessNotify("Logged in successfully!");
   } catch (error) {
-    // toastErrorNotify(error.message);
-    alert(error.message);
+    toastErrorNotify(error.message);
+    // alert(error.message);
   }
 };
 
@@ -86,7 +86,7 @@ export const userObserver = (setCurrentUser) => {
 
 export const logOut = () => {
   signOut(auth);
-  // toastSuccessNotify("Logged out successfully!");
+  toastSuccessNotify("Logged out successfully!");
 };
 
 //* https://console.firebase.google.com/
@@ -101,7 +101,7 @@ export const signUpWithGoogle = (navigate) => {
     .then((result) => {
       // console.log(result);
       navigate("/");
-      // toastSuccessNotify("Logged in successfully!");
+      toastSuccessNotify("Logged in successfully!");
     })
     .catch((error) => {
       // Handle Errors here.
@@ -114,12 +114,12 @@ export const forgotPassword = (email) => {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       // Password reset email sent!
-      // toastWarnNotify("Please check your mail box!");
-      alert("Please check your mail box!");
+      toastWarnNotify("Please check your mail box!");
+      // alert("Please check your mail box!");
     })
     .catch((err) => {
-      // toastErrorNotify(err.message);
-      alert(err.message);
+      toastErrorNotify(err.message);
+      // alert(err.message);
       // ..
     });
 };
