@@ -23,7 +23,7 @@ const Register = () => {
     const displayName = `${firstName} ${lastName}`;
     createUser(email, password, navigate, displayName);
     console.log(firstName, lastName);
-  };  
+  };
 
   const handleGoogleProvider = () => {
     signUpWithGoogle(navigate);
