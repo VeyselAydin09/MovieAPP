@@ -2,11 +2,11 @@
 module.exports = {
   content: [
     "./src/**/*.{html,js,jsx,ts,tsx}",
-    "./node_modules/tw-elements/dist/js/**/*.js"
+    "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   theme: {
     extend: {},
   },
-  darkMode:"class",
+  darkMode: "class",
   plugins: [],
 };
