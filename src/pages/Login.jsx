@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-import { forgotPassword, signIn, signUpWithGoogle } from "../auth/firebase";
+import { forgotPassword, signin, signUpWithGoogle } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +10,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(email, password, navigate);
+    signin(email, password, navigate);
+
     console.log(email, password);
   };
 
@@ -19,25 +20,26 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div className="form-image hidden md:block">
         <img
           src="https://picsum.photos/800/800"
           alt="sample-movie"
-          className="object-cover h-screen w-full"
+          className="object-cover h-screen w-full "
         />
       </div>
-      <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-[#23242a]">
+      <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
         <div
-          className={`mt-[10vh] mx-auto overflow-hidden relative w-[380px] h-[500px] rounded-[8px] bg-gray-100 dark:bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
+          className={`mt-[10vh] mx-auto overflow-hidden relative w-[380px] h-[500px] rounded-[8px] bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
         >
           <form
-            className="absolute inset-[2px] rounded-[8px] bg-gray-100 dark:bg-[#28292d] z-[10] form flex flex-col p-20"
+            className="absolute inset-[2px] rounded-[8px] bg-[#28292d] z-[10] form flex flex-col p-20"
             onSubmit={handleSubmit}
           >
             <h2 className="text-[#ff4b45] text-2xl font-[500] text-center tracking-[0.1em]">
-              Sign in
+              Sign In
             </h2>
+
             <div className="relative w-[300px] mt-[35px] inputbox">
               <input
                 type="email"
