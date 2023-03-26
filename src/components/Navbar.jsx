@@ -7,80 +7,85 @@ import Switch from "./Switch";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
-  //* with custom hook
-  // const { currentUser } = useAuthContext();
+  // const currentUser = { displayName: "veysel aydin" };
+  // const currentUser = false
 
-  // const currentUser = { displayName: "felix franko" };
-  // const currentUser = false;
   return (
-    <>
-      <nav className="w-full flex flex-wrap items-center justify-between py-3 bg-white dark:bg-gray-900 dark:text-white shadow-lg navbar navbar-expand-lg fixed-top">
-        <div className="container-fluid w-full flex items-center justify-between px-6">
-          <Link className="text-2xl  pr-2 font-semibold" to="/">
-            /Weycell/ Movie App
-          </Link>
-          {/* Collapsible wrapper */}
-          {/* Right elements */}
-          <div className="flex items-center relative">
-            {/* Icon */}
-            {currentUser && (
-              <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>
-            )}
-            <Switch />
-            <div className="dropdown relative">
-              <span
-                className="dropdown-toggle flex items-center hidden-arrow"
-                id="dropdownMenuButton2"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src={currentUser?.photoURL || avatar}
-                  className="rounded-full"
-                  style={{ height: 25, width: 25 }}
-                  alt="user"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-              </span>
-              <ul
-                className="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
-                aria-labelledby="dropdownMenuButton2"
-              >
-                <li>
-                  <Link
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    to="/register"
-                  >
-                    Register
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <span
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    role="button"
-                    onClick={() => logOut()}
-                  >
-                    Logout
-                  </span>
-                </li>
-              </ul>
-            </div>
+    <nav
+      className="flex w-full flex-wrap items-center justify-between bg-neutral-900 text-white py-3 shadow-lg lg:flex-wrap lg:justify-start fixed-top "
+      data-te-navbar-ref
+    >
+      <div className="flex w-full  items-center justify-between px-6   ">
+        <Link className="pr-2 text-xl font-semibold" to="/">
+          Weycell Movie App
+        </Link>
+
+        {/* Collapsible wrapper */}
+        {/* Right elements */}
+        <div className="relative flex items-center">
+          {/* Icon */}
+
+          {currentUser && (
+            <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>
+          )}
+          <Switch />
+
+          <div className="relative" data-te-dropdown-ref>
+            <span
+              className="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+              id="dropdownMenuButton2"
+              role="button"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <img
+                src={currentUser?.photoUrl || avatar}
+                className="rounded-full"
+                style={{ height: "25px", width: "25px" }}
+                alt="user"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </span>
+            <ul
+              className="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton2"
+              data-te-dropdown-menu-ref
+            >
+              <li>
+                <Link
+                  className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  to="/register"
+                  data-te-dropdown-item-ref
+                >
+                  Register
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  to="/login"
+                  data-te-dropdown-item-ref
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <span
+                  className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                  role="button"
+                  data-te-dropdown-item-ref
+                  onClick={() => logOut()}
+                >
+                  Logout
+                </span>
+              </li>
+            </ul>
           </div>
-          {/* Right elements */}
         </div>
-      </nav>
-      <div className="h-[52px]"></div>
-    </>
+        {/* Right elements */}
+      </div>
+    </nav>
   );
 };
 
